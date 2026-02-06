@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LÌ XÌ TẾT RỰC RỠ - ƯU ĐÃI ĐA TẦNG SÂU NHẤT TỪ TRƯỚC ĐẾN NAY TỪ MEEY GROUP</title>
+    <meta name="description" content="Tham gia khảo sát ngắn để nhận ưu đãi độc quyền từ Meey Group và trải nghiệm công nghệ AI bất động sản mới nhất">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="form-header">
+                <img src="Logo_png-55.png" alt="Meey Group" class="header-logo">
+                <h1>
+                    <span class="headline-main">LÌ XÌ TẾT RỰC RỠ</span><br>
+                    <span class="headline-sub">ƯU ĐÃI ĐA TẦNG SÂU NHẤT TỪ TRƯỚC ĐẾN NAY TỪ MEEY GROUP</span>
+                </h1>
+            </div>
+
+            <form id="surveyForm">
+                <!-- Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step active" id="stepIndicator0">
+                        <div class="step-number">🎁</div>
+                        <div class="step-label">Thông tin</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" id="stepIndicator1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Sản phẩm</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" id="stepIndicator2">
+                        <div class="step-number">✓</div>
+                        <div class="step-label">Hoàn thành</div>
+                    </div>
+                </div>
+
+
+
+                <!-- Step 0: Info (Intro + Name + Phone) -->
+                <div class="step-content active" id="step0">
+                    <div class="intro-block">
+                        <p>Nhân dịp đầu xuân năm mới, <strong>Meey Group</strong> triển khai chương trình ưu đãi Tết đặc biệt dành cho nhà đầu tư và môi giới đang tìm kiếm giải pháp công nghệ toàn diện để tối ưu hóa quy trình đầu tư và giao dịch.</p>
+                        <p class="tagline">Tra cứu dữ liệu – Đăng tin – Quản lý & bán hàng</p>
+
+                        <p class="feature-text">ĐĂNG KÝ ĐỂ NHẬN NGAY ƯU ĐÃI HẤP DẪN</p>
+                        
+                        <div class="intro-promo-list">
+                            <div class="intro-promo-item">
+                                <div class="promo-title">🎁 Meey Map – Tra cứu dữ liệu BĐS</div>
+                                <ul>
+                                    <li>Giảm sâu đến 70% giá gói</li>
+                                    <li>Mua gói càng dài, lì xì càng lớn</li>
+                                    <li>Tổng giá trị ưu đãi lên tới 1.350.000đ</li>
+                                </ul>
+                            </div>
+                            <div class="intro-promo-item">
+                                <div class="promo-title">🎁 Meey Land – Đăng tin bất động sản</div>
+                                <ul>
+                                    <li>Chỉ từ 1.000đ/ngày, trọn gói trong dịp Tết</li>
+                                </ul>
+                            </div>
+                            <div class="intro-promo-item">
+                                <div class="promo-title">🎁 Meey CRM – Giải pháp bán hàng BĐS</div>
+                                <ul>
+                                    <li>Giảm ngay 50% gói Meey CRM</li>
+                                    <li>Tặng 01 tháng Meey Map (300.000đ)</li>
+                                    <li>15 ngày đăng tin KHÔNG GIỚI HẠN trên MeeyLand.com</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="privacy-note">Ưu đãi có thời hạn. Đăng ký ngay để được đội ngũ Meey Group tư vấn và nhận lì xì ưu đãi sớm nhất.</p>
+                    </div>
+
+                    <!-- Name Field -->
+                    <div class="question-block">
+                        <label class="question-label">
+                            Họ và tên anh/chị <span class="required">*</span>
+                        </label>
+                        <input type="text" id="userName" name="userName" class="text-input" placeholder="Nhập tên của bạn..." required>
+                    </div>
+
+                    <!-- Phone Field -->
+                    <div class="question-block">
+                        <label class="question-label">
+                            Số điện thoại của anh/chị <span class="required">*</span>
+                        </label>
+                        <div class="phone-input-wrapper">
+                            <span class="phone-prefix">+84</span>
+                            <input type="tel" id="userPhone" name="userPhone" class="text-input phone-input" placeholder="Nhập số điện thoại (VD: 912345678)" required>
+                        </div>
+                    </div>
+
+                    <div class="promo-footer">
+                        <p>🎁 <strong>Ưu đãi có thời hạn!</strong></p>
+                        <p>Đăng ký ngay để được đội ngũ Meey Group tư vấn và nhận lì xì ưu đãi sớm nhất.</p>
+                    </div>
+                    
+                    <div class="button-row">
+                        <button type="button" class="nav-btn next-btn" id="nextBtn0">
+                            Tiếp tục →
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Step 1: Product Interest -->
+                <div class="step-content" id="step1">
+                    <div class="question-block">
+                        <label class="question-label">
+                            <span class="promo-headline">CHỌN ƯU ĐÃI BẠN MUỐN NHẬN NGAY</span> <span class="required">*</span>
+                            <span class="hint">(Chọn ít nhất 1 ưu đãi)</span>
+                        </label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="products" value="MeeyMap - Tra cứu dữ liệu BĐS">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">
+                                    <div class="product-info">
+                                        <strong>🎁 MEEY MAP</strong>
+                                        <span class="product-desc">Tra cứu dữ liệu BĐS</span>
+                                    </div>
+                                    <span class="separator"></span>
+                                    <span class="promo-details">
+                                        <span class="promo-item">➤ Giảm sâu đến 70% giá gói</span>
+                                        <span class="promo-item">➤ Mua gói càng dài, lì xì càng lớn</span>
+                                        <span class="promo-item">➤ Tổng giá trị ưu đãi lên tới 1.350.000đ</span>
+                                    </span>
+                                </span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="products" value="MeeyLand - Đăng tin bất động sản">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">
+                                    <div class="product-info">
+                                        <strong>🎁 MEEY LAND</strong>
+                                        <span class="product-desc">Đăng tin bất động sản</span>
+                                    </div>
+                                    <span class="separator"></span>
+                                    <span class="promo-details">
+                                        <span class="promo-item">➤ Đăng tin bất động sản trọn gói CHỈ 1K/NGÀY</span>
+                                    </span>
+                                </span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="products" value="MeeyCRM - Giải pháp bán hàng BĐS">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">
+                                    <div class="product-info">
+                                        <strong>🎁 MEEY CRM</strong>
+                                        <span class="product-desc">Giải pháp bán hàng BĐS</span>
+                                    </div>
+                                    <span class="separator"></span>
+                                    <span class="promo-details">
+                                        <span class="promo-item">➤ Giảm ngay 50% gói Meey CRM</span>
+                                        <span class="promo-item">➤ Tặng 01 tháng Meey Map (300.000đ)</span>
+                                        <span class="promo-item">➤ 15 ngày đăng tin KHÔNG GIỚI HẠN trên MeeyLand.com</span>
+                                    </span>
+                                </span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="products" value="Chưa xài sản phẩm nào" id="productNone">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">
+                                    <strong>Chưa xài sản phẩm nào</strong>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="promo-footer">
+                        <p>🎁 <strong>Ưu đãi có thời hạn!</strong></p>
+                        <p>Đăng ký ngay để được đội ngũ Meey Group tư vấn và nhận lì xì ưu đãi sớm nhất.</p>
+                    </div>
+                    
+                    <div class="button-row">
+                        <button type="button" class="nav-btn prev-btn" id="prevBtn1">
+                            ← Quay lại
+                        </button>
+                        <button type="submit" class="nav-btn submit-btn">
+                            Gửi Khảo Sát ✓
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h2>Đăng ký thành công!</h2>
+                <p>Cảm ơn bạn đã quan tâm đến hệ sinh thái sản phẩm Meey Group. Chúng tôi sẽ sớm liên hệ xác nhận quyền lợi ưu đãi.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
