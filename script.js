@@ -5,7 +5,7 @@ function getURLParameter(name) {
 }
 
 // Get group from URL (e.g., ?group=group1)
-const groupSource = getURLParameter('group');
+const groupSource = getURLParameter('source');
 console.log('Group Source:', groupSource);
 
 // State management
@@ -196,3 +196,4 @@ async function sendToGoogleSheets(data) {
 
     return true;
 }
+
