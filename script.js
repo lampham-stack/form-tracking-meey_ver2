@@ -4,9 +4,9 @@ function getURLParameter(name) {
     return urlParams.get(name) || 'direct';
 }
 
-// Get group from URL (e.g., ?group=group1)
-const groupSource = getURLParameter('group');
-console.log('Group Source:', groupSource);
+// Get source from URL (e.g., ?source=Paid_Google)
+const groupSource = getURLParameter('source');
+console.log('Traffic Source:', groupSource);
 
 // State management
 let currentStep = 0; // Start from intro (step 0)
@@ -136,7 +136,7 @@ form.addEventListener('submit', async function (e) {
         name: userName.value.trim(),
         phone: fullPhone,
         products: productsValues,
-        group: groupSource
+        source: groupSource
     };
 
     // Disable submit button
@@ -182,7 +182,7 @@ async function sendToGoogleSheets(data) {
     console.log('Tên:', data.name);
     console.log('Số điện thoại:', data.phone);
     console.log('Sản phẩm quan tâm:', data.products);
-    console.log('Nguồn:', data.group);
+    console.log('Nguồn:', data.source);
 
     // Send to Google Sheets
     const response = await fetch(GOOGLE_SCRIPT_URL, {
