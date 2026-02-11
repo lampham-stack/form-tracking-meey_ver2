@@ -1,32 +1,57 @@
-// Get URL parameters for tracking
+// ===== URL PARAMETER TRACKING =====
+// CRITICAL: Capture URL parameters IMMEDIATELY when script loads
+// to prevent loss from redirects or URL changes
+
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name) || 'direct';
+    return urlParams.get(name);
 }
 
-// Debug: Log full URL and all parameters
+// Capture source IMMEDIATELY (before any potential redirects)
+let groupSource = 'direct'; // Default value
+
+// Try to get from URL first
+const urlSource = getURLParameter('source');
+if (urlSource) {
+    groupSource = urlSource;
+    // Save to sessionStorage to persist across page interactions
+    sessionStorage.setItem('trafficSource', urlSource);
+    console.log('✅ Source captured from URL:', urlSource);
+} else {
+    // Check if we have it saved from before
+    const savedSource = sessionStorage.getItem('trafficSource');
+    if (savedSource) {
+        groupSource = savedSource;
+        console.log('✅ Source retrieved from sessionStorage:', savedSource);
+    } else {
+        console.log('⚠️ No source parameter found - using "direct"');
+    }
+}
+
+// Debug logging
 console.log('=== URL TRACKING DEBUG ===');
 console.log('Full URL:', window.location.href);
 console.log('Search params:', window.location.search);
-
-// Get all URL parameters
-const allParams = new URLSearchParams(window.location.search);
 console.log('All URL parameters:');
+const allParams = new URLSearchParams(window.location.search);
 for (let [key, value] of allParams.entries()) {
     console.log(`  ${key} = ${value}`);
 }
-
-// Get source from URL (e.g., ?source=Facebook)
-const groupSource = getURLParameter('source');
-console.log('Detected Traffic Source:', groupSource);
+console.log('FINAL Traffic Source:', groupSource);
 console.log('======================');
 
-// Add visual debug indicator (remove in production)
-document.addEventListener('DOMContentLoaded', function() {
+// Add visual debug indicator
+window.addEventListener('DOMContentLoaded', function() {
     const debugDiv = document.createElement('div');
-    debugDiv.style.cssText = 'position: fixed; top: 10px; right: 10px; background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 4px; font-size: 12px; z-index: 9999; font-family: monospace;';
-    debugDiv.textContent = `Source: ${groupSource}`;
+    debugDiv.style.cssText = 'position: fixed; top: 10px; right: 10px; background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 4px; font-size: 12px; z-index: 9999; font-family: monospace; box-shadow: 0 2px 8px rgba(0,0,0,0.2);';
+    debugDiv.innerHTML = `<strong>Source:</strong> ${groupSource}`;
     document.body.appendChild(debugDiv);
+    
+    // Update debug div if source changes
+    setInterval(() => {
+        const currentSource = sessionStorage.getItem('trafficSource') || 'direct';
+        debugDiv.innerHTML = `<strong>Source:</strong> ${currentSource}`;
+    }, 1000);
 });
 
 // State management
@@ -150,6 +175,9 @@ form.addEventListener('submit', async function (e) {
     const phone = userPhone.value.trim();
     const productsValues = selectedProducts.map(cb => cb.value).join(', ');
     const fullPhone = phone ? `+84${phone}` : '';
+    
+    // Get the latest source value (in case it was updated)
+    const finalSource = sessionStorage.getItem('trafficSource') || groupSource || 'direct';
 
     // Prepare form data
     const formData = {
@@ -157,8 +185,17 @@ form.addEventListener('submit', async function (e) {
         name: userName.value.trim(),
         phone: fullPhone,
         products: productsValues,
-        source: groupSource
+        source: finalSource
     };
+    
+    // Debug: Log what we're about to send
+    console.log('📤 SENDING TO GOOGLE SHEETS:');
+    console.log('  Timestamp:', formData.timestamp);
+    console.log('  Name:', formData.name);
+    console.log('  Phone:', formData.phone);
+    console.log('  Products:', formData.products);
+    console.log('  Source:', formData.source);
+    console.log('  Full payload:', JSON.stringify(formData, null, 2));
 
     // Disable submit button
     const submitBtn = e.submitter;
