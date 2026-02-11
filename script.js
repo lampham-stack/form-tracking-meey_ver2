@@ -4,9 +4,30 @@ function getURLParameter(name) {
     return urlParams.get(name) || 'direct';
 }
 
-// Get source from URL (e.g., ?source=Paid_Google)
+// Debug: Log full URL and all parameters
+console.log('=== URL TRACKING DEBUG ===');
+console.log('Full URL:', window.location.href);
+console.log('Search params:', window.location.search);
+
+// Get all URL parameters
+const allParams = new URLSearchParams(window.location.search);
+console.log('All URL parameters:');
+for (let [key, value] of allParams.entries()) {
+    console.log(`  ${key} = ${value}`);
+}
+
+// Get source from URL (e.g., ?source=Facebook)
 const groupSource = getURLParameter('source');
-console.log('Traffic Source:', groupSource);
+console.log('Detected Traffic Source:', groupSource);
+console.log('======================');
+
+// Add visual debug indicator (remove in production)
+document.addEventListener('DOMContentLoaded', function() {
+    const debugDiv = document.createElement('div');
+    debugDiv.style.cssText = 'position: fixed; top: 10px; right: 10px; background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 4px; font-size: 12px; z-index: 9999; font-family: monospace;';
+    debugDiv.textContent = `Source: ${groupSource}`;
+    document.body.appendChild(debugDiv);
+});
 
 // State management
 let currentStep = 0; // Start from intro (step 0)
